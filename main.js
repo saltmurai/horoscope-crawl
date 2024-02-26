@@ -5,10 +5,6 @@ const Router = require("koa-router");
 const router = new Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { translate } = require("./openai");
-router.get("/ping", (ctx) => {
-  ctx.body = "pong";
-});
 
 router.get("/daily/:sign", async (ctx) => {
   if (!ctx.params.sign) {
@@ -41,6 +37,6 @@ app.use(parser());
 app.use(cors());
 app.use(router.routes());
 
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log("Server running on port 3000");
 });
